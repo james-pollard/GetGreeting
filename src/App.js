@@ -14,7 +14,7 @@ const getGreeting = async () => {
 }
 
 const postMessage = async () => {
-  const subject = document.getElementById('subject').value;
+  //const subject = document.getElementById('subject').value;
   const body = document.getElementById('content').value;
   const response = await fetch('http://localhost:8080/postit', {
     method: 'POST',
@@ -22,7 +22,6 @@ const postMessage = async () => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      subject,
       body
     })
   });
@@ -36,8 +35,7 @@ function App() {
         <button className="btn btn-primary" onClick={()=>getGreeting()}>Get Greeting</button>
         <label id="greeting"></label>
         <br/>
-        <input id="subject" type="text" placeholder="Enter a Subject" /><br/>
-        <input id="content" type="text" placeholder="Enter some content" /><br/>
+         <input id="content" type="text" placeholder="Enter some content" /><br/>
         <button className="btn btn-primary" onClick={()=> postMessage()}>Post</button>
       </header>
     </div>
